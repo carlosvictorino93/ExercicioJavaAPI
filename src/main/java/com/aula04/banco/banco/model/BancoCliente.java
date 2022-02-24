@@ -34,4 +34,12 @@ public class BancoCliente {
                 });
         return detalhesCliente(id);
     }
+    private int buscaPosicaoCliente(Cliente cliente) {
+        return BancoCliente.clientes.indexOf(cliente);
+    }
+    public Cliente removeCliente(UUID id) throws Exception {
+        Cliente cliente = detalhesCliente(id);
+        BancoCliente.clientes.remove(buscaPosicaoCliente(cliente));
+        return cliente;
+    }
 }
